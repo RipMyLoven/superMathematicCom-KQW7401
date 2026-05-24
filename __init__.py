@@ -19,5 +19,11 @@ except Exception as _e:
     print(f"[comfyui-stable-face-crop] PoseExtractor not loaded: {_e}")
     I, J = {}, {}
 
-NODE_CLASS_MAPPINGS = {**A, **C, **E, **G, **I}
-NODE_DISPLAY_NAME_MAPPINGS = {**B, **D, **F, **H, **J}
+try:
+    from .face_extractor_nodes import NODE_CLASS_MAPPINGS as K, NODE_DISPLAY_NAME_MAPPINGS as L
+except Exception as _e:
+    print(f"[comfyui-stable-face-crop] FaceExtractor not loaded: {_e}")
+    K, L = {}, {}
+
+NODE_CLASS_MAPPINGS = {**A, **C, **E, **G, **I, **K}
+NODE_DISPLAY_NAME_MAPPINGS = {**B, **D, **F, **H, **J, **L}
