@@ -1119,18 +1119,6 @@ class StableFaceCropGod:
             else:
                 crop_w = size; crop_h = size / aspect
 
-            # ── Сдвиг по X/Y чтобы кроп не вылезал за границы ──
-            # Вместо чёрных/reflect-краёв — двигаем центр кропа к краю кадра.
-            fH, fW = float(H), float(W)
-            if crop_w < fW:
-                cx = float(np.clip(cx, crop_w / 2.0, fW - crop_w / 2.0))
-            else:
-                cx = fW / 2.0
-            if crop_h < fH:
-                cy = float(np.clip(cy, crop_h / 2.0, fH - crop_h / 2.0))
-            else:
-                cy = fH / 2.0
-
             # Scale: исходный crop_w → final_w
             scale = final_w / crop_w
 

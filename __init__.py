@@ -25,11 +25,5 @@ except Exception as _e:
     print(f"[comfyui-stable-face-crop] FaceExtractor not loaded: {_e}")
     K, L = {}, {}
 
-try:
-    from .dual_face_crop_god import NODE_CLASS_MAPPINGS as I, NODE_DISPLAY_NAME_MAPPINGS as J
-except Exception as _e:
-    print(f"[comfyui-stable-face-crop] DualFaceCropGod not loaded: {_e}")
-    M, N = {}, {}
-
-NODE_CLASS_MAPPINGS = {**A, **C, **E, **G, **I, **K, **M}
-NODE_DISPLAY_NAME_MAPPINGS = {**B, **D, **F, **H, **J, **L, **N}
+NODE_CLASS_MAPPINGS = {**A, **C, **E, **G, **I, **K}
+NODE_DISPLAY_NAME_MAPPINGS = {**B, **D, **F, **H, **J, **L}
