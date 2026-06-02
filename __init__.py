@@ -2,6 +2,12 @@ from .stable_face_crop import NODE_CLASS_MAPPINGS as A, NODE_DISPLAY_NAME_MAPPIN
 from .insightface_mouth_crop import NODE_CLASS_MAPPINGS as C, NODE_DISPLAY_NAME_MAPPINGS as D
 
 try:
+    from .dual_face_crop_god import NODE_CLASS_MAPPINGS as M, NODE_DISPLAY_NAME_MAPPINGS as N
+except Exception as _e:
+    print(f"[comfyui-stable-face-crop] DualFaceCropGod not loaded: {_e}")
+    M, N = {}, {}
+
+try:
     from .pose_face_god import NODE_CLASS_MAPPINGS as E, NODE_DISPLAY_NAME_MAPPINGS as F
 except Exception as _e:
     print(f"[comfyui-stable-face-crop] PoseFaceDetectGod not loaded: {_e}")
@@ -25,5 +31,5 @@ except Exception as _e:
     print(f"[comfyui-stable-face-crop] FaceExtractor not loaded: {_e}")
     K, L = {}, {}
 
-NODE_CLASS_MAPPINGS = {**A, **C, **E, **G, **I, **K}
-NODE_DISPLAY_NAME_MAPPINGS = {**B, **D, **F, **H, **J, **L}
+NODE_CLASS_MAPPINGS = {**A, **C, **E, **G, **I, **K, **M}
+NODE_DISPLAY_NAME_MAPPINGS = {**B, **D, **F, **H, **J, **L, **N}
